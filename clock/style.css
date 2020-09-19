@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Squada+One&display=swap");
+
 html {
   background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
   background-size: cover;
@@ -10,6 +12,9 @@ body {
   margin: 0;
   font-size: 2rem;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   flex: 1;
   min-height: 100vh;
   align-items: center;
@@ -44,4 +49,12 @@ body {
   transform: rotate(90deg);
   transition: all 0.05s;
   transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.time {
+  text-align: center;
+  text-anchor: middle;
+  font-size: 8rem;
+  font-weight: bold;
+  font-family: "Squada One", cursive;
 }
