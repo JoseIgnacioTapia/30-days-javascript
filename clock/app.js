@@ -13,6 +13,8 @@ function setDate() {
   const minutes = now.getMinutes();
   const hours = now.getHours();
 
+  const time = [hours.toString(), minutes.toString(), seconds.toString()];
+
   const secondDegrees = (seconds / 60) * 360 + 90 + secondsBase;
   secondHand.style.transform = `rotate(${secondDegrees}deg)`;
 
@@ -28,7 +30,12 @@ function setDate() {
 
   if (hours == 11) hoursBase += 360;
 
-  digTime.innerText = `${hours} : ${minutes} : ${seconds}`;
+  for (let i in time) {
+    if (time[i].length === 1) {
+      time[i] = 0 + time[i];
+    }
+  }
+  digTime.innerText = `${time[0]} : ${time[1]} : ${time[2]}`;
 }
 
 setInterval(setDate, 1000);

@@ -8,6 +8,10 @@ html {
   font-size: 10px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-size: 2rem;
@@ -51,10 +55,12 @@ body {
   transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
 
-.time {
+div > p > span.time {
   text-align: center;
   text-anchor: middle;
-  font-size: 8rem;
+  font-size: 6rem;
   font-weight: bold;
-  font-family: "Squada One", cursive;
+  font-family: monospace, "Squada One", cursive;
+  letter-spacing: 1.5px;
+  display: inline-block;
 }
