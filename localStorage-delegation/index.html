@@ -51,12 +51,19 @@
         <input type="text" name="item" placeholder="Item Name" required />
         <input type="submit" value="+ Add Item" />
       </form>
+      <div class="btns">
+        <button id="allCheck">Check All</button>
+        <button id="zeroCheck">Check Nothing</button>
+      </div>
     </div>
 
     <script>
       const addItems = document.querySelector(".add-items");
       const itemsList = document.querySelector(".plates");
       const items = JSON.parse(localStorage.getItem("items")) || []; // Take the elements from local storage if There are or an empty array
+
+      const allCheck = document.getElementById("allCheck");
+      const zeroCheck = document.getElementById("zeroCheck");
 
       function addItem(e) {
         e.preventDefault();
@@ -97,8 +104,29 @@
         populateList(items, itemsList);
       }
 
+      function selectAll() {
+        items.forEach((item) => {
+          item.done = true;
+        });
+
+        localStorage.setItem("items", JSON.stringify(items));
+        populateList(items, itemsList);
+      }
+
+      function deSelectAll() {
+        items.forEach((item) => {
+          item.done = false;
+        });
+
+        localStorage.setItem("items", JSON.stringify(items));
+        populateList(items, itemsList);
+      }
+
       addItems.addEventListener("submit", addItem);
       itemsList.addEventListener("click", toggleDone);
+
+      allCheck.addEventListener("click", selectAll);
+      zeroCheck.addEventListener("click", deSelectAll);
 
       populateList(items, itemsList);
     </script>
