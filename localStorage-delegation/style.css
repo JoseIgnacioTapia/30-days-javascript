@@ -75,12 +75,20 @@ h2 {
 }
 
 .add-items input,
-button {
+.btns button {
   padding: 10px;
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-button {
+.btns button {
   margin-top: 15px;
+}
+
+button.delete {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  margin-left: 10px;
+  outline: none;
 }
