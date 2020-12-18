@@ -89,7 +89,7 @@
               plate.done ? "checked" : ""
             } />
               <label for="item${i}">${plate.text}</label>
-              <button class="delete">X</button>
+              <button class="delete" data-index=${i}>X</button>
             </li>
           `;
           })
@@ -123,11 +123,22 @@
         populateList(items, itemsList);
       }
 
+      function deleteItem(e) {
+        if (!e.target.matches("button")) return; // Skip this unless it´s a button
+        const el = e.target;
+        const index = el.dataset.index;
+        items.splice(index, 1);
+        localStorage.setItem("items", JSON.stringify(items));
+        populateList(items, itemsList);
+      }
+
       addItems.addEventListener("submit", addItem);
       itemsList.addEventListener("click", toggleDone);
 
       allCheck.addEventListener("click", selectAll);
       zeroCheck.addEventListener("click", deSelectAll);
+
+      itemsList.addEventListener("click", deleteItem);
 
       populateList(items, itemsList);
     </script>
